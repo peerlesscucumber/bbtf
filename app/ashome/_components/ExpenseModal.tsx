@@ -84,7 +84,7 @@ const ExpenseSection: React.FC<{
 }> = ({ section, sectionLength, onInputChange, onRemoveSection, errors }) => {
   return (
     <div className="mt-5">
-      <div className="flex justify-between align-center">
+      <div className="flex justify-between align-center font-itim">
         <div>Expense {section.id}</div>
         {(section.id > 1 || sectionLength > 1) && (
           <button
@@ -99,47 +99,47 @@ const ExpenseSection: React.FC<{
       <div className="flex">
         <label className="form-control w-full mr-3">
           <div className="label">
-            <span className="label-text">Title</span>
+            <span className="label-text font-itim">Title</span>
           </div>
           <input
             type="text"
             placeholder="Type here"
-            className={`input input-bordered w-full ${
+            className={`input input-bordered w-full font-itim ${
               errors.includes("Title is required") ? "input-error" : ""
             }`}
             value={section.title}
             onChange={(e) => onInputChange("title", e.target.value)}
           />
           {errors.includes("Title is required") && (
-            <span className="text-error">Title is required</span>
+            <span className="text-error font-itim">Title is required</span>
           )}
         </label>
         <label className="form-control w-full ">
           <div className="label">
-            <span className="label-text">Amount</span>
+            <span className="label-text font-itim">Amount</span>
           </div>
           <input
             type="number"
             placeholder="Type here"
-            className={`input input-bordered w-full ${
+            className={`input input-bordered font-itim w-full ${
               errors.includes("Amount is required") ? "input-error" : ""
             }`}
             value={section.amount}
             onChange={(e) => onInputChange("amount", e.target.value)}
           />
           {errors.includes("Amount is required") && (
-            <span className="text-error">Amount is required</span>
+            <span className="text-error font-itim">Amount is required</span>
           )}
         </label>
       </div>
       <label className="form-control w-full ">
         <div className="label">
-          <span className="label-text">Tags</span>
+          <span className="label-text font-itim">Tags</span>
         </div>
         <input
           type="text"
           placeholder="Type here"
-          className="input input-bordered w-full"
+          className="input input-bordered w-full font-itim"
           value={section.tags}
           onChange={(e) => onInputChange("tags", e.target.value)}
         />
@@ -244,7 +244,7 @@ const ExpenseModal: React.FC<{
   return (
     <div className="modal-box max-w-3xl">
       <div>
-        <div className="mb-2">Add expenses for:</div>
+        <div className="mb-2 font-itim">Add expenses for:</div>
         <Datepicker
           options={dateOptions}
           onChange={handleDateChange}
@@ -266,18 +266,24 @@ const ExpenseModal: React.FC<{
         ))}
 
         <div className="flex justify-center">
-          <button className="btn btn-primary my-8" onClick={addSection}>
+          <button
+            className="btn btn-primary my-8 font-itim"
+            onClick={addSection}
+          >
             Add another expense
           </button>
         </div>
 
         <div className="flex flex-row justify-end align-center">
-          <button className="btn btn-secondary mr-2" onClick={saveExpenses}>
+          <button
+            className="btn btn-secondary mr-2 font-itim"
+            onClick={saveExpenses}
+          >
             Save
           </button>
 
           <form method="dialog">
-            <button className="btn modal-action mt-0">Close</button>
+            <button className="btn modal-action mt-0 font-itim">Close</button>
           </form>
         </div>
       </div>
