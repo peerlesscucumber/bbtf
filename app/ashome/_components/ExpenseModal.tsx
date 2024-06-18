@@ -6,6 +6,7 @@ import {
   useState,
 } from "react";
 import Datepicker from "tailwind-datepicker-react";
+import { IOptions } from "tailwind-datepicker-react/types/Options";
 
 interface State {
   sections: SectionData[];
@@ -36,7 +37,7 @@ interface SectionData {
   tags: string;
 }
 
-const dateOptions = {
+const dateOptions: IOptions = {
   title: "Select date",
   autoHide: true,
   todayBtn: false,
@@ -153,7 +154,7 @@ const ExpenseModal: React.FC<{
 }> = ({ updateExpenses }) => {
   const [showDate, setShowDate] = useState<boolean>(false);
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState<Record<string, string[]>>({});
   const [sections, setSections] = useState<SectionData[]>([
     { id: 1, title: "", amount: "", tags: "" },
   ]);
@@ -236,8 +237,8 @@ const ExpenseModal: React.FC<{
 
       setSections([{ id: 1, title: "", amount: "", tags: "" }]);
       updateExpenses(sectionsWithDate);
-        //dispatch({ type: "SAVE_SECTIONS", payload: sectionsWithDate });
-        (document.getElementById("my_modal_2") as HTMLDialogElement).close();
+      //dispatch({ type: "SAVE_SECTIONS", payload: sectionsWithDate });
+      (document.getElementById("my_modal_2") as HTMLDialogElement).close();
     }
   };
 

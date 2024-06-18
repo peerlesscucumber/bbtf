@@ -26,7 +26,7 @@ const Home = () => {
     }
     acc[date].push(section);
     return acc;
-  }, {});
+  }, {} as Record<string, SectionData[]>);
 
   return (
     <div className="flex flex-col bg-blue-300 h-screen justify-start p-2">
