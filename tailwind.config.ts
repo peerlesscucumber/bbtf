@@ -5,6 +5,7 @@ const config: Config = {
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/tailwind-datepicker-react/dist/**/*.js",
   ],
   theme: {
     extend: {
@@ -14,6 +15,23 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
     },
+  },
+  daisyui: {
+    themes: [
+      {
+        mytheme: {
+          primary: "#6b5eeb",
+          secondary: "#ff00ff",
+          accent: "#00ffff",
+          neutral: "#ff00ff",
+          "base-100": "#2c2b36",
+          info: "#0000ff",
+          success: "#00ff00",
+          warning: "#00ff00",
+          error: "#ff0000",
+        },
+      },
+    ],
   },
   plugins: [require("@tailwindcss/typography"), require("daisyui")],
 };
